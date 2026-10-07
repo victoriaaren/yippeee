@@ -67,9 +67,6 @@ def boba(milk, milk_hi, bg, table, straw="#a8d5b5", pearls="#4a3226", label=None
         d.rectangle([px, py, px + 2, py + 2], fill=pearls)
         d.point((px, py), fill="#7a5a44")
     d.line([(38, 24), (41, 45)], fill="#ffffff", width=1)
-    face(d, 48, 31)
-    if label:
-        d.rectangle([40, 35, 56, 38], fill=label)
     sparkles(d, [(12, 28), (84, 30), (18, 46), (80, 8)])
     return img
 
@@ -77,39 +74,43 @@ def boba(milk, milk_hi, bg, table, straw="#a8d5b5", pearls="#4a3226", label=None
 def chawan():
     img, d = canvas(["#dff0d8", "#d3e8cb", "#c8e0bf", "#bcd8b3"], ("#e9d9bf", "#d3bf9c"))
     clouds(d, [(70, 6), (8, 10)])
-    d.pieslice([24, 26, 72, 58], 0, 180, fill="#f2e6d0")
-    d.pieslice([24, 26, 72, 58], 20, 90, fill="#e6d4b4")
-    d.ellipse([24, 28, 72, 40], fill="#e6d4b4")
-    d.ellipse([27, 29, 69, 38], fill="#8fb58a")
-    d.ellipse([32, 31, 54, 36], fill="#b9d6a8")
+    d.pieslice([24, 11, 72, 55], 0, 180, fill="#f2e6d0")
+    d.rectangle([28, 36, 34, 42], fill="#fbf3e2")
+    d.ellipse([24, 28, 72, 38], fill="#e6d4b4")
+    d.ellipse([27, 29, 69, 37], fill="#8fb58a")
+    d.ellipse([32, 31, 54, 35], fill="#b9d6a8")
     for x, y in [(36, 32), (44, 33), (58, 34)]:
         d.rectangle([x, y, x + 1, y], fill="#d6ebc6")
-    d.rectangle([36, 56, 60, 57], fill="#d8c5a2")
+    d.rectangle([38, 55, 58, 57], fill="#d8c5a2")
     d.rectangle([10, 40, 12, 52], fill="#d9b88a")
     d.polygon([(6, 52), (16, 52), (14, 60), (8, 60)], fill="#e8d3a8")
     for x in range(7, 15, 2):
         d.line([(x, 54), (x, 59)], fill="#caa874")
-    face(d, 48, 43, "#f3b2b2")
     steam(d, 40, 22, "#ffffff")
     steam(d, 56, 20, "#ffffff")
     sparkles(d, [(84, 30), (16, 26), (80, 14)], "#f4fbe9")
     return img
 
 
-def iced_latte():
+def ice_cream_cone():
     img, d = canvas(["#d9ecfa", "#cfe5f6", "#c5def2", "#bcd8ee"], ("#eef4f9", "#d3e1ee"))
     clouds(d, [(8, 8), (70, 16)])
-    d.rectangle([34, 14, 62, 52], fill="#eaf6ff")
-    d.rectangle([35, 36, 61, 51], fill="#fdf6e6")
-    d.rectangle([35, 21, 61, 35], fill="#9cc58f")
-    d.rectangle([35, 21, 61, 24], fill="#b9d6a8")
-    d.rectangle([35, 33, 61, 35], fill="#c9dfb8")
-    for x, y in [(37, 14), (46, 16), (53, 14), (41, 22)]:
-        d.rectangle([x, y, x + 6, y + 6], fill="#e1f1ff", outline="#b9d8ee")
-    d.line([(56, 2), (52, 20)], fill="#f4a3b0", width=3)
-    d.line([(37, 15), (38, 48)], fill="#ffffff", width=1)
-    d.rectangle([34, 52, 62, 53], fill="#b9d8ee")
-    face(d, 48, 42, "#f3c0b2")
+    d.polygon([(36, 34), (60, 34), (48, 60)], fill="#e2b877")
+    for i in range(5):
+        d.line([(37 + i * 5, 34), (48, 60)], fill="#c99a56", width=1)
+    for y in (40, 46, 52):
+        half = int((60 - y) * 0.46)
+        d.line([(48 - half, y), (48 + half, y)], fill="#c99a56", width=1)
+    d.ellipse([32, 18, 64, 40], fill="#fdf3dc")
+    d.ellipse([32, 18, 48, 30], fill="#fffaf0")
+    d.ellipse([34, 12, 62, 26], fill="#fdf3dc")
+    d.ellipse([40, 6, 56, 18], fill="#fdf3dc")
+    d.rectangle([32, 32, 64, 36], fill="#f3e4c4")
+    d.polygon([(36, 18), (60, 18), (62, 24), (34, 24)], fill="#8fbf86")
+    for x, ln in [(36, 8), (42, 4), (47, 10), (53, 5), (58, 7)]:
+        d.rectangle([x, 22, x + 2, 22 + ln], fill="#8fbf86")
+        d.rectangle([x, 22 + ln, x + 2, 23 + ln], fill="#6f9a70")
+    d.rectangle([40, 14, 50, 15], fill="#b9d6a8")
     d.rectangle([70, 38, 72, 40], fill="#8fb58a")
     d.rectangle([72, 36, 74, 38], fill="#b9d6a8")
     d.rectangle([20, 44, 22, 46], fill="#8fb58a")
@@ -159,29 +160,35 @@ def teapot():
     return img
 
 
-def nyc_event():
-    img, d = canvas(["#bfdcf2", "#cde5f6", "#ddeefa", "#f0f7fc"])
-    clouds(d, [(8, 12), (66, 20)])
-    for (x, y, w, h, c) in [(2, 36, 12, 28, "#7f9fbc"), (12, 28, 10, 36, "#6e8fae"), (22, 40, 12, 24, "#7f9fbc"),
-                            (64, 34, 12, 30, "#7f9fbc"), (74, 24, 8, 40, "#6e8fae"), (82, 38, 14, 26, "#7f9fbc")]:
-        d.rectangle([x, y, x + w, y + h], fill=c)
-    d.rectangle([77, 18, 78, 24], fill="#6e8fae")
-    for (x, y) in [(5, 40), (8, 46), (15, 34), (15, 42), (26, 46), (68, 40), (68, 48), (77, 30), (77, 38), (86, 44)]:
-        d.rectangle([x, y, x + 1, y + 1], fill="#fff1b8")
-    d.rectangle([0, 54, W, H], fill="#e9d9bf")
-    d.line([(0, 4), (48, 12), (96, 4)], fill=INK, width=1)
-    for i, c in enumerate(["#f4a3b0", "#fff1b8", "#b9d6a8", "#f4a3b0", "#fff1b8", "#b9d6a8", "#f4a3b0"]):
-        x = 8 + i * 13
-        y = 4 + int(8 * (1 - ((x - 48) / 48.0) ** 2))
-        d.polygon([(x - 2, y), (x + 2, y), (x, y + 5)], fill=c)
-    d.rectangle([38, 36, 58, 56], fill=WHITE)
-    d.rectangle([38, 36, 58, 39], fill="#f4a3b0")
-    d.rectangle([58, 40, 62, 48], fill=WHITE)
-    d.rectangle([60, 42, 61, 46], fill="#bfdcf2")
-    face(d, 48, 46, "#f3b2b2")
-    steam(d, 44, 32)
-    steam(d, 52, 30)
-    sparkles(d, [(30, 22), (90, 18)], "#ffffff")
+def mocktail():
+    img, d = canvas(["#d9ecfa", "#cfe5f6", "#c5def2", "#bcd8ee"], ("#f0e2cc", "#d9c5a3"))
+    clouds(d, [(8, 8), (70, 12)])
+    d.polygon([(22, 16), (46, 16), (44, 52), (24, 52)], fill="#f7fbff")
+    d.polygon([(24, 24), (44, 24), (43, 36), (25, 36)], fill="#ffb79a")
+    d.polygon([(25, 36), (43, 36), (44, 52), (24, 52)], fill="#f4789a")
+    d.polygon([(24, 30), (44, 30), (43.5, 36), (24.5, 36)], fill="#ff9a8a")
+    for x, y in [(26, 18), (34, 19), (29, 25)]:
+        d.rectangle([x, y, x + 6, y + 6], fill="#e9f5ff", outline="#bcd8ee")
+    d.line([(40, 4), (34, 30)], fill="#8fbf86", width=2)
+    d.ellipse([44, 12, 56, 24], fill="#ffd36e", outline="#f2a93b")
+    d.line([(50, 12), (50, 24)], fill="#f2a93b", width=1)
+    d.line([(44, 18), (56, 18)], fill="#f2a93b", width=1)
+    d.polygon([(22, 16), (26, 10), (30, 16)], fill="#9fd08c")
+    d.line([(26, 18), (27, 50)], fill="#ffffff", width=1)
+    d.rectangle([24, 52, 44, 53], fill="#d9e8f2")
+    d.rectangle([62, 38, 80, 52], fill="#e8f1fb")
+    d.rectangle([66, 33, 76, 38], fill="#e8f1fb")
+    d.rectangle([62, 38, 65, 52], fill="#fdfeff")
+    d.rectangle([62, 49, 80, 52], fill="#cfe1f2")
+    stems = [(71, 33, 64, 18), (71, 33, 71, 12), (71, 33, 78, 18), (71, 33, 68, 24)]
+    for x1, y1, x2, y2 in stems:
+        d.line([(x1, y1), (x2, y2)], fill="#7fae6f", width=1)
+    for (cx, cy, c) in [(64, 17, "#f4a3b0"), (71, 11, "#fff1b8"), (78, 17, "#ffffff"), (68, 23, "#f4a3b0")]:
+        d.rectangle([cx - 2, cy - 1, cx + 2, cy + 1], fill=c)
+        d.rectangle([cx - 1, cy - 2, cx + 1, cy + 2], fill=c)
+        d.point((cx, cy), fill="#f2a93b")
+    d.polygon([(67, 28), (72, 25), (73, 29)], fill="#9fd08c")
+    sparkles(d, [(14, 30), (88, 30), (54, 36)], "#ffffff")
     return img
 
 
@@ -195,12 +202,12 @@ def makku():
     d.rectangle([25, 11, 33, 14], fill="#f4a3b0")
     d.rectangle([22, 36, 36, 44], fill=WHITE)
     d.rectangle([25, 38, 33, 41], fill="#f4a3b0")
-    d.pieslice([44, 36, 82, 60], 0, 180, fill="#e6edf5")
-    d.pieslice([44, 36, 82, 60], 30, 90, fill="#cfd9e6")
+    d.pieslice([44, 23, 82, 59], 0, 180, fill="#e6edf5")
+    d.rectangle([48, 46, 54, 52], fill="#f4f8fc")
     d.ellipse([44, 36, 82, 46], fill="#cfd9e6")
-    d.ellipse([47, 37, 79, 44], fill="#fdf7ec")
+    d.ellipse([47, 37, 79, 45], fill="#fdf7ec")
     d.ellipse([52, 38, 66, 42], fill="#ffffff")
-    face(d, 63, 47, "#f3b2b2")
+    d.rectangle([56, 58, 70, 59], fill="#cfd9e6")
     steam(d, 52, 30, "#ffffff")
     sparkles(d, [(12, 18), (88, 28), (44, 14), (86, 56)], "#ffffff")
     return img
@@ -209,18 +216,16 @@ def makku():
 def peach_milk_tea():
     img, d = canvas(["#ffe9d6", "#ffdfc7", "#ffd4b8", "#ffc8a8"], ("#f1cfae", "#dcb28a"))
     clouds(d, [(6, 10), (72, 8)], "#fff6ec")
-    d.rectangle([24, 22, 54, 52], fill=WHITE)
-    d.rectangle([24, 22, 27, 52], fill="#f1e6d6")
-    d.rectangle([54, 28, 62, 34], fill=WHITE)
-    d.rectangle([60, 28, 63, 44], fill=WHITE)
-    d.rectangle([54, 40, 62, 44], fill=WHITE)
-    d.rectangle([56, 31, 59, 41], fill="#ffd4b8")
-    d.rectangle([26, 24, 52, 32], fill="#d6a574")
-    d.rectangle([26, 24, 52, 25], fill="#e8c298")
-    d.rectangle([24, 52, 54, 53], fill="#e6d6c0")
-    face(d, 39, 40, "#f4a3b0")
-    steam(d, 34, 18)
-    steam(d, 44, 16)
+    d.polygon([(22, 18), (52, 18), (49, 52), (25, 52)], fill="#fff8f0")
+    d.polygon([(24, 26), (50, 26), (49, 36), (25, 36)], fill="#e9c79c")
+    d.polygon([(25, 36), (49, 36), (49, 52), (25, 52)], fill="#d6a574")
+    for x, y in [(26, 19), (34, 20), (41, 19), (29, 28), (38, 30)]:
+        d.rectangle([x, y, x + 6, y + 6], fill="#fffdf8", outline="#f3dcc2")
+    d.line([(44, 4), (38, 28)], fill="#f4a3b0", width=2)
+    d.line([(27, 20), (28, 48)], fill="#ffffff", width=1)
+    d.rectangle([25, 52, 49, 53], fill="#e6d6c0")
+    d.pieslice([46, 14, 60, 26], 180, 360, fill="#ffa97e")
+    d.line([(46, 20), (60, 20)], fill="#f08e66", width=1)
     d.ellipse([66, 34, 90, 56], fill="#ffa97e")
     d.ellipse([66, 34, 80, 48], fill="#ffbf99")
     d.line([(78, 36), (78, 55)], fill="#f08e66", width=1)
@@ -237,7 +242,6 @@ def cup(bg, table, liquid):
     d.rectangle([62, 33, 68, 38], fill=WHITE)
     d.rectangle([66, 33, 69, 46], fill=WHITE)
     d.rectangle([62, 42, 68, 46], fill=WHITE)
-    face(d, 48, 40)
     steam(d, 44, 24)
     steam(d, 52, 22)
     sparkles(d, [(16, 20), (82, 16)])
@@ -252,16 +256,16 @@ def save(img, name):
 def main():
     pink = ["#fbe3e6", "#f8d7dc", "#f5ccd3", "#f1c0ca"]
     tbl = ("#f0d7c0", "#dcbb9c")
-    save(boba("#e8b4b8", "#f4cfd2", pink, tbl, label="#f4a3b0"), "superboba-1")
+    save(boba("#e8b4b8", "#f4cfd2", pink, tbl), "superboba-1")
     save(boba("#cdb4e0", "#e1d0ee", ["#efe6f8", "#e7dbf3", "#decfee", "#d5c4e8"], tbl,
-              straw="#f4a3b0", label="#ffffff"), "superboba-2")
+              straw="#f4a3b0"), "superboba-2")
     save(boba("#f3d68a", "#fae6b0", ["#fff3d6", "#ffeabf", "#ffe2a8", "#ffd990"], tbl,
-              straw="#8fc0e0", label="#f4a3b0"), "superboba-3")
+              straw="#8fc0e0"), "superboba-3")
     save(chawan(), "kyohayashiyamatcha-1")
-    save(iced_latte(), "aozen-matcha-1")
+    save(ice_cream_cone(), "aozen-matcha-1")
     save(matcha_tin(), "tagashirachaho-1")
     save(teapot(), "itea-world-1")
-    save(nyc_event(), "oftea-1")
+    save(mocktail(), "oftea-1")
     save(makku(), "makku-1")
     save(peach_milk_tea(), "shineteameet-1")
     save(cup(["#eaf4fb", "#dff0fa", "#d3e8f5", "#c8e0f0"], tbl, "#b9d6a8"), "generic-matcha")
