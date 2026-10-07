@@ -7,9 +7,9 @@ Reads data/videos.json (one entry per featured video) and renders:
   - about.html         (static about-me page)
   - <brand-slug>.html  (one subpage per brand that has more than one video)
 
-To add a new video: add an entry to data/videos.json and run this script
-(or just push -- the GitHub Actions workflow runs it automatically and
-deploys the result to GitHub Pages).
+To add a new video: add an entry to data/videos.json, run this script,
+then commit + push the regenerated docs/ folder. GitHub Pages is configured
+to serve straight from main's /docs folder, so pushing is the only deploy step.
 """
 import json
 import shutil
@@ -22,7 +22,7 @@ ROOT = Path(__file__).parent
 DATA_FILE = ROOT / "data" / "videos.json"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
-OUTPUT_DIR = ROOT / "public"
+OUTPUT_DIR = ROOT / "docs"
 
 MAX_STACK_LEAVES = 4  # cap the hover "deck of cards" animation at 3-4 leaves
 

@@ -8,22 +8,36 @@ This is now a small static-site generator, not hand-written HTML:
 - `data/videos.json` — one entry per featured video (brand, reel link, collab type, bullets, etc.)
 - `templates/` — Jinja2 templates (`base.html`, `index.html`, `about.html`, `brand.html`, `_card.html`)
 - `static/style.css` — all styling
-- `build.py` — reads the data + templates and renders everything into `public/` (git-ignored, rebuilt every time)
-- `.github/workflows/deploy.yml` — on every push to `main`, GitHub Actions runs `build.py` and deploys `public/` straight to GitHub Pages
+- `build.py` — reads the data + templates and renders everything into `docs/` (committed to git; this is what GitHub Pages actually serves)
+
+GitHub Pages is set to deploy from `main` / `docs`, so **the only deploy step is running the build and pushing the result.**
 
 **Brands with more than one video automatically become a hover "stack" card** (deck-of-cards animation, capped at 4 leaves) that links to an auto-generated `<brand-slug>.html` page listing every video for that brand. A brand with exactly one video just renders as a normal card. This means Superboba today and itea world (or anyone else) tomorrow, as soon as a second video is added, get the same stack treatment with zero manual HTML.
 
 ### Adding a new video
 1. Open `data/videos.json`
 2. Copy an existing entry, update `id`, `brand`, `brand_slug`, `reel_url`, `collab_type` (`gifted`/`paid`), `thumb_class`/`thumb_emoji`, and `bullets`
-3. Commit + push to `main` — Actions rebuilds and deploys automatically (usually live within ~1-2 minutes)
+3. Run the build and push:
+   ```
+   pip install -r requirements.txt   # first time only
+   python build.py
+   git add -A && git commit -m "Add <brand> video" && git push
+   ```
+   Live on GitHub Pages within a minute or two of the push.
 
 To preview locally before pushing:
 ```
-pip install -r requirements.txt
 python build.py
-cd public && python3 -m http.server 8000
+cd docs && python3 -m http.server 8000
 ```
+
+### Optional future upgrade: fully automatic builds
+A GitHub Actions workflow that runs `build.py` and deploys on every push (so you
+never run it locally) is easy to add, but pushing a workflow file requires this
+CLI's GitHub token to have the `workflow` OAuth scope, which wasn't granted in this
+session (`gh auth refresh -h github.com -s workflow`, then approve the device code
+as `victoriaaren`). Once that's done, say the word and I'll wire it back in — the
+`build.py`/`templates`/`data` split already works standalone either way.
 
 ### On auto-polling Instagram directly
 Instagram does not allow public scraping (login wall + Terms of Service), so this
