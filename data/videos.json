@@ -1,0 +1,158 @@
+[
+  {
+    "id": "superboba-1",
+    "brand": "Superboba",
+    "brand_slug": "superboba",
+    "accent": "\ud83c\udf38",
+    "thumb_class": "thumb-superboba",
+    "thumb_emoji": "\ud83e\uddcb",
+    "reel_url": "https://www.instagram.com/reel/DdEkLlAtbe3/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "gifted",
+    "extra_tags": [
+      "collab repost"
+    ],
+    "group_tags": [
+      "UGC"
+    ],
+    "bullets": [
+      "Bubble tea taste-test & recipe spotlight",
+      "Posted via @superboba's page"
+    ],
+    "not_on_account": true,
+    "brand_tagline": "bubble tea collabs & flavor showcases, one brand, a few different vibes"
+  },
+  {
+    "id": "superboba-2",
+    "brand": "Superboba",
+    "brand_slug": "superboba",
+    "accent": "\ud83c\udf38",
+    "thumb_class": "thumb-superboba",
+    "thumb_emoji": "\ud83e\uddcb",
+    "reel_url": "https://www.instagram.com/reel/DcttsGutRg7/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "gifted",
+    "group_tags": [
+      "UGC"
+    ],
+    "bullets": [
+      "Flavor showcase video",
+      "Styled drink shots + sips"
+    ],
+    "brand_tagline": "bubble tea collabs & flavor showcases, one brand, a few different vibes"
+  },
+  {
+    "id": "superboba-3",
+    "brand": "Superboba",
+    "brand_slug": "superboba",
+    "accent": "\ud83c\udf38",
+    "thumb_class": "thumb-superboba",
+    "thumb_emoji": "\ud83e\uddcb",
+    "reel_url": "https://www.instagram.com/reel/Ddl8aVGtq0m/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "gifted",
+    "group_tags": [
+      "UGC"
+    ],
+    "bullets": [
+      "Another bubble tea feature",
+      "Aesthetic b-roll + product close-ups"
+    ],
+    "brand_tagline": "bubble tea collabs & flavor showcases, one brand, a few different vibes"
+  },
+  {
+    "id": "kyohayashiyamatcha-1",
+    "brand": "@kyohayashiyamatcha",
+    "brand_slug": "kyohayashiyamatcha",
+    "accent": "\u2728",
+    "thumb_class": "thumb-matcha",
+    "thumb_emoji": "\ud83c\udf75",
+    "reel_url": "https://www.instagram.com/reel/DeEqm_hRa85/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "gifted",
+    "bullets": [
+      "Matcha powder prep & whisking demo",
+      "Product-focused taste review"
+    ]
+  },
+  {
+    "id": "aozen-matcha-1",
+    "brand": "Yami // Aozen Matcha",
+    "brand_slug": "aozen-matcha",
+    "accent": "\u2728",
+    "thumb_class": "thumb-matcha",
+    "thumb_emoji": "\ud83c\udf75",
+    "reel_url": "https://www.instagram.com/reel/DdkfxMmgO7o/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "paid",
+    "bullets": [
+      "Matcha powder latte recipe walkthrough",
+      "Cozy, aesthetic styling"
+    ]
+  },
+  {
+    "id": "tagashirachaho-1",
+    "brand": "@tagashirachaho.us",
+    "brand_slug": "tagashirachaho",
+    "accent": "\u2728",
+    "thumb_class": "thumb-matcha",
+    "thumb_emoji": "\ud83c\udf75",
+    "reel_url": "https://www.instagram.com/reel/DdAmlrzAYRp/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "gifted",
+    "bullets": [
+      "Matcha powder recipe experiment",
+      "Flat-lay & process shots"
+    ]
+  },
+  {
+    "id": "itea-world-1",
+    "brand": "itea world",
+    "brand_slug": "itea-world",
+    "accent": "\ud83c\udf3f",
+    "thumb_class": "thumb-oolong",
+    "thumb_emoji": "\ud83c\udf3f",
+    "reel_url": "https://www.instagram.com/reel/Db-3Sy9xDzG/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "gifted",
+    "bullets": [
+      "Oolong tea line feature",
+      "Brewing process + tasting notes"
+    ]
+  },
+  {
+    "id": "oftea-1",
+    "brand": "oftea",
+    "brand_slug": "oftea",
+    "accent": "\u2b50",
+    "thumb_class": "thumb-event",
+    "thumb_emoji": "\ud83d\uddfd",
+    "reel_url": "https://www.instagram.com/reel/DcQ111cR7M1/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "gifted",
+    "bullets": [
+      "NYC tea event coverage",
+      "On-the-ground event recap"
+    ]
+  },
+  {
+    "id": "makku-1",
+    "brand": "Makku",
+    "brand_slug": "makku",
+    "accent": "\ud83c\udf3e",
+    "thumb_class": "thumb-makku",
+    "thumb_emoji": "\ud83c\udf76",
+    "reel_url": "https://www.instagram.com/reel/DdsZMg9Aa8T/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "gifted",
+    "bullets": [
+      "Korean makgeolli recipe feature",
+      "Styled pour + tasting shots"
+    ]
+  },
+  {
+    "id": "shineteameet-1",
+    "brand": "ShineTeaMeet",
+    "brand_slug": "shineteameet",
+    "accent": "\ud83c\udf51",
+    "thumb_class": "thumb-shineteameet",
+    "thumb_emoji": "\ud83c\udf51",
+    "reel_url": "https://www.instagram.com/reel/DdrWf7hsJnU/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    "collab_type": "gifted",
+    "bullets": [
+      "Peach oolong infused milk tea recipe",
+      "Houjicha twist feature"
+    ]
+  }
+]

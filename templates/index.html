@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% from "_card.html" import video_card, stack_card %}
+
+{% block title %}yippeeetea · UGC Portfolio{% endblock %}
+
+{% block header %}
+<header class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">🍵 yippeeetea</p>
+    <h1>hi! I'm vic, a tea enjoyer who loves to experiment with new recipes</h1>
+    <p class="sub">I make videos featuring tea recipes &amp; new creative matcha combos, here's a peek at some of my work <span class="kaomoji">(｡•ᴗ•｡)</span></p>
+    <p class="psa">psa: open to gifted / paid collaborations and UGC</p>
+    <a class="ig-link" href="https://www.instagram.com/yippeeetea/" target="_blank" rel="noopener">
+      <span class="ig-icon" aria-hidden="true"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiPjxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcng9IjYiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI1Ii8+PGNpcmNsZSBjeD0iMTcuNSIgY3k9IjYuNSIgcj0iMS4yIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJub25lIi8+PC9zdmc+" alt="" /></span>
+      <span>@yippeeetea on Instagram</span>
+    </a>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+  <h2 class="section-title">featured UGC videos</h2>
+  <p class="section-sub">tap any card to watch the reel</p>
+
+  <section class="grid">
+    {% for group in groups %}
+      {% if group.videos | length > 1 %}
+        {{ stack_card(group.brand_slug, group.brand, group.videos[0].accent, group.videos[0].thumb_class, group.videos[0].thumb_emoji, group.videos | length, group.videos[0].group_tags) }}
+      {% else %}
+        {{ video_card(group.videos[0]) }}
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  <section class="contact-card">
+    <p class="contact-heart" aria-hidden="true">(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧</p>
+    <h3>contact me!</h3>
+    <p>got a brand or a recipe idea you want to collab on? I'd love to hear from you</p>
+    <a class="email-link" href="mailto:yippeeetea@gmail.com">yippeeetea@gmail.com ♥</a>
+  </section>
+{% endblock %}

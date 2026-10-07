@@ -28,9 +28,9 @@ a, button, .card, .ig-link, .back-link {
 }
 
 .hero {
-  padding: 64px 24px 48px;
+  padding: 40px 24px 48px;
   text-align: center;
-  background: linear-gradient(180deg, #e9f1f5 0%, #eef3e8 45%, var(--cream) 100%);
+  background: linear-gradient(180deg, var(--cream) 0%, #e9f1f5 22%, #eef3e8 60%, var(--cream) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -106,7 +106,7 @@ a, button, .card, .ig-link, .back-link {
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding: 18px 24px 0;
+  padding: 16px 24px 12px;
   background: var(--cream);
 }
 
@@ -185,15 +185,18 @@ main {
   font-size: 3.2rem;
 }
 
-.thumb-superboba { background: linear-gradient(135deg, #f3d9c4, #e8b4b8); }
-.thumb-matcha { background: linear-gradient(135deg, #cfe0c3, #8fa98b); }
-.thumb-oolong { background: linear-gradient(135deg, #d9c9a3, #a8835a); }
-.thumb-event { background: linear-gradient(135deg, var(--baby-blue), #8aa7c2); }
+.thumb-superboba { --thumb-grad: linear-gradient(135deg, #f3d9c4, #e8b4b8); background: var(--thumb-grad); }
+.thumb-matcha { --thumb-grad: linear-gradient(135deg, #cfe0c3, #8fa98b); background: var(--thumb-grad); }
+.thumb-oolong { --thumb-grad: linear-gradient(135deg, #d9c9a3, #a8835a); background: var(--thumb-grad); }
+.thumb-event { --thumb-grad: linear-gradient(135deg, var(--baby-blue), #8aa7c2); background: var(--thumb-grad); }
+.thumb-makku { --thumb-grad: linear-gradient(135deg, #f6e3e3, #e4b8c2); background: var(--thumb-grad); }
+.thumb-shineteameet { --thumb-grad: linear-gradient(135deg, #ffd9c2, #f3a98a); background: var(--thumb-grad); }
 
-/* --- superboba "deck of cards" stack --- */
+/* --- hover "deck of cards" stack (used for any brand with multiple videos) --- */
 .card-stack {
   position: relative;
   overflow: visible;
+  background: var(--thumb-grad);
 }
 
 .stack-leaf {
@@ -205,31 +208,37 @@ main {
   align-items: center;
   justify-content: center;
   font-size: 2.4rem;
-  background: linear-gradient(135deg, #f3d9c4, #e8b4b8);
+  background: var(--thumb-grad);
   box-shadow: 0 4px 10px rgba(107, 79, 59, 0.18);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
 }
 
-.stack-leaf-1 { transform: translate(-50%, -50%) rotate(0deg); z-index: 3; }
-.stack-leaf-2 { transform: translate(-50%, -50%) rotate(0deg) scale(0.96); z-index: 2; opacity: 0.9; }
-.stack-leaf-3 { transform: translate(-50%, -50%) rotate(0deg) scale(0.92); z-index: 1; opacity: 0.75; }
+.stack-leaf-1 { transform: translate(-50%, -50%) rotate(0deg); z-index: 4; }
+.stack-leaf-2 { transform: translate(-50%, -50%) rotate(0deg) scale(0.96); z-index: 3; opacity: 0.9; }
+.stack-leaf-3 { transform: translate(-50%, -50%) rotate(0deg) scale(0.92); z-index: 2; opacity: 0.75; }
+.stack-leaf-4 { transform: translate(-50%, -50%) rotate(0deg) scale(0.88); z-index: 1; opacity: 0.6; }
 
-.stack-leaf-1, .stack-leaf-2, .stack-leaf-3 {
+.stack-leaf-1, .stack-leaf-2, .stack-leaf-3, .stack-leaf-4 {
   left: 50%;
   top: 50%;
 }
 
 .card-stack-link:hover .stack-leaf-1 {
-  transform: translate(-72%, -58%) rotate(-14deg);
+  transform: translate(-78%, -58%) rotate(-16deg);
 }
 
 .card-stack-link:hover .stack-leaf-2 {
-  transform: translate(-50%, -46%) rotate(2deg) scale(0.97);
+  transform: translate(-58%, -44%) rotate(-5deg) scale(0.97);
   opacity: 1;
 }
 
 .card-stack-link:hover .stack-leaf-3 {
-  transform: translate(-28%, -58%) rotate(14deg) scale(0.94);
+  transform: translate(-38%, -44%) rotate(6deg) scale(0.95);
+  opacity: 1;
+}
+
+.card-stack-link:hover .stack-leaf-4 {
+  transform: translate(-18%, -58%) rotate(16deg) scale(0.92);
   opacity: 1;
 }
 

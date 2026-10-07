@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_card.html" import video_card %}
+
+{% block title %}{{ brand }} · yippeeetea{% endblock %}
+{% block favicon %}{{ videos[0].thumb_emoji }}{% endblock %}
+
+{% block header %}
+<header class="hero hero-sub">
+  <div class="hero-content">
+    <a class="back-link" href="index.html">&larr; back to all videos</a>
+    <p class="eyebrow">{{ videos[0].thumb_emoji }} {{ brand | lower }}</p>
+    <h1>all my {{ brand }} videos</h1>
+    <p class="sub">{{ tagline }}</p>
+    {% if videos[0].group_tags %}
+    <div class="pills">
+      {% for tag in videos[0].group_tags %}
+      <span class="pill pill-ugc">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+  <section class="grid">
+    {% for v in videos %}
+      {{ video_card(v) }}
+    {% endfor %}
+  </section>
+{% endblock %}

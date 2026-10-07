@@ -1,0 +1,57 @@
+{% macro pill_label(collab_type) -%}
+  {%- if collab_type == 'paid' -%}paid collab
+  {%- elif collab_type == 'gifted' -%}gifted collab
+  {%- else -%}{{ collab_type }}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro pill_class(collab_type) -%}
+  {%- if collab_type == 'paid' -%}pill-paid
+  {%- elif collab_type == 'gifted' -%}pill-gifted
+  {%- else -%}pill-count
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro video_card(v) %}
+<a class="card" href="{{ v.reel_url }}" target="_blank" rel="noopener">
+  <div class="thumb {{ v.thumb_class }}">{{ v.thumb_emoji }}</div>
+  <div class="card-body">
+    <p class="subtitle"><span class="accent">{{ v.accent }}</span> {{ v.brand }}</p>
+    <div class="pills">
+      <span class="pill {{ pill_class(v.collab_type) }}">{{ pill_label(v.collab_type) }}</span>
+      {% for tag in v.extra_tags or [] %}
+      <span class="pill pill-count">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <ul class="points">
+      {% for b in v.bullets %}
+      <li>{{ b }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</a>
+{% endmacro %}
+
+{% macro stack_card(brand_slug, brand, accent, thumb_class, thumb_emoji, count, group_tags) %}
+<a class="card card-stack-link" href="{{ brand_slug }}.html">
+  <div class="thumb {{ thumb_class }} card-stack" aria-hidden="true">
+    {% set max_leaves = [count, 4] | min %}
+    {% for i in range(max_leaves, 0, -1) %}
+    <span class="stack-leaf stack-leaf-{{ i }}">{{ thumb_emoji }}</span>
+    {% endfor %}
+  </div>
+  <div class="card-body">
+    <p class="subtitle"><span class="accent">{{ accent }}</span> {{ brand }}</p>
+    <div class="pills">
+      <span class="pill pill-count">{{ count }} video{{ 's' if count != 1 else '' }}</span>
+      {% for tag in group_tags or [] %}
+      <span class="pill pill-ugc">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <ul class="points">
+      <li>tap to see all {{ brand }} videos</li>
+      <li>hover to peek the stack</li>
+    </ul>
+  </div>
+</a>
+{% endmacro %}
