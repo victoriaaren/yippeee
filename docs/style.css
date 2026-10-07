@@ -28,7 +28,7 @@ a, button, .card, .ig-link, .back-link {
 }
 
 .hero {
-  padding: 40px 24px 48px;
+  padding: 40px 24px 16px;
   text-align: center;
   background: linear-gradient(180deg, var(--cream) 0%, #e9f1f5 22%, #eef3e8 60%, var(--cream) 100%);
   position: relative;
@@ -92,14 +92,10 @@ a, button, .card, .ig-link, .back-link {
 }
 
 .psa {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
+  font-style: italic;
   color: var(--sage-dark);
-  background: #eef6fa;
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: 999px;
-  margin: 0 0 20px;
-  border: 1px solid var(--baby-blue);
+  margin: 0 0 16px;
 }
 
 .site-nav {
@@ -135,7 +131,7 @@ a, button, .card, .ig-link, .back-link {
 main {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 48px 24px 80px;
+  padding: 16px 24px 80px;
 }
 
 .section-title {

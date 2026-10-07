@@ -11,6 +11,7 @@ To add a new video: add an entry to data/videos.json, run this script,
 then commit + push the regenerated docs/ folder. GitHub Pages is configured
 to serve straight from main's /docs folder, so pushing is the only deploy step.
 """
+import hashlib
 import json
 import shutil
 from collections import OrderedDict
@@ -49,6 +50,13 @@ def build():
     OUTPUT_DIR.mkdir(parents=True)
 
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)), autoescape=False)
+
+    def asset(path):
+        # content hash busts browser/CDN caches when an image changes
+        digest = hashlib.md5((STATIC_DIR / path).read_bytes()).hexdigest()[:8]
+        return f"{path}?v={digest}"
+
+    env.globals["asset"] = asset
 
     videos = load_videos()
     groups = group_by_brand(videos)

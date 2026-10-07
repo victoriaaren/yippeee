@@ -15,7 +15,7 @@
 {%- endmacro %}
 
 {% macro thumb_inner(v) -%}
-  {%- if v.thumb_img -%}<img class="thumb-img" src="{{ v.thumb_img }}" alt="" loading="lazy" />
+  {%- if v.thumb_img -%}<img class="thumb-img" src="{{ asset(v.thumb_img) }}" alt="" loading="lazy" />
   {%- else -%}{{ v.thumb_emoji }}{%- endif -%}
 {%- endmacro %}
 
@@ -46,7 +46,7 @@
     {% set max_leaves = [count, 4] | min %}
     {% for i in range(max_leaves, 0, -1) %}
     {% set lv = videos[i - 1] %}
-    <span class="stack-leaf stack-leaf-{{ i }}"{% if lv.thumb_img %} style="background-image:url('{{ lv.thumb_img }}')"{% endif %}>{% if not lv.thumb_img %}{{ lv.thumb_emoji }}{% endif %}</span>
+    <span class="stack-leaf stack-leaf-{{ i }}"{% if lv.thumb_img %} style="background-image:url('{{ asset(lv.thumb_img) }}')"{% endif %}>{% if not lv.thumb_img %}{{ lv.thumb_emoji }}{% endif %}</span>
     {% endfor %}
   </div>
   <div class="card-body">
@@ -58,8 +58,9 @@
       {% endfor %}
     </div>
     <ul class="points">
-      <li>tap to see all {{ count }} {{ brand }} videos</li>
-      <li>hover to peek at the stack</li>
+      {% for b in (videos[0].group_bullets or ['tap to see all ' ~ count ~ ' ' ~ brand ~ ' videos', 'hover to peek at the stack']) %}
+      <li>{{ b }}</li>
+      {% endfor %}
     </ul>
   </div>
 </a>
