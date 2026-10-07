@@ -3,7 +3,7 @@
 Pulls new reels from @yippeeetea via the Instagram Graph API and appends them
 to data/videos.json.
 
-Needs a Business/Creator account and a long-lived token:
+Needs a Creator or Business account (yours already is) and a long-lived token:
     export IG_ACCESS_TOKEN=...      # see README for one-time setup
 
 A reel is only added when its caption has a portfolio hashtag:

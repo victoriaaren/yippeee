@@ -22,7 +22,7 @@ Preview locally: `python build.py && cd docs && python3 -m http.server 8000`
 
 ## Auto-sync from Instagram
 `sync_instagram.py` uses the official Instagram Graph API. One-time setup:
-1. Switch @yippeeetea to a Professional (Creator or Business) account in the Instagram app
+1. Your @yippeeetea account is already a Creator account, so nothing to change there
 2. Create a Meta developer app, add the "Instagram API with Instagram Login" product, and add yourself as a tester
 3. Generate a long-lived access token and `export IG_ACCESS_TOKEN=...` (tokens last 60 days and can be refreshed)
 
