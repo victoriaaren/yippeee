@@ -83,6 +83,8 @@ def build():
 
     # static assets
     shutil.copy(STATIC_DIR / "style.css", OUTPUT_DIR / "style.css")
+    if (STATIC_DIR / "img").exists():
+        shutil.copytree(STATIC_DIR / "img", OUTPUT_DIR / "img")
     (OUTPUT_DIR / ".nojekyll").touch()
 
     print(f"Built {len(list(OUTPUT_DIR.glob('*.html')))} pages into {OUTPUT_DIR}")

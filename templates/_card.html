@@ -1,6 +1,7 @@
 {% macro pill_label(collab_type) -%}
   {%- if collab_type == 'paid' -%}paid collab
   {%- elif collab_type == 'gifted' -%}gifted collab
+  {%- elif collab_type == 'paid ugc' -%}paid UGC
   {%- else -%}{{ collab_type }}
   {%- endif -%}
 {%- endmacro %}
@@ -8,13 +9,19 @@
 {% macro pill_class(collab_type) -%}
   {%- if collab_type == 'paid' -%}pill-paid
   {%- elif collab_type == 'gifted' -%}pill-gifted
+  {%- elif collab_type == 'paid ugc' -%}pill-ugc
   {%- else -%}pill-count
   {%- endif -%}
 {%- endmacro %}
 
+{% macro thumb_inner(v) -%}
+  {%- if v.thumb_img -%}<img class="thumb-img" src="{{ v.thumb_img }}" alt="" loading="lazy" />
+  {%- else -%}{{ v.thumb_emoji }}{%- endif -%}
+{%- endmacro %}
+
 {% macro video_card(v) %}
 <a class="card" href="{{ v.reel_url }}" target="_blank" rel="noopener">
-  <div class="thumb {{ v.thumb_class }}">{{ v.thumb_emoji }}</div>
+  <div class="thumb {{ v.thumb_class }}">{{ thumb_inner(v) }}</div>
   <div class="card-body">
     <p class="subtitle"><span class="accent">{{ v.accent }}</span> {{ v.brand }}</p>
     <div class="pills">
@@ -32,16 +39,18 @@
 </a>
 {% endmacro %}
 
-{% macro stack_card(brand_slug, brand, accent, thumb_class, thumb_emoji, count, group_tags) %}
+{% macro stack_card(brand_slug, brand, videos, group_tags) %}
+{% set count = videos | length %}
 <a class="card card-stack-link" href="{{ brand_slug }}.html">
-  <div class="thumb {{ thumb_class }} card-stack" aria-hidden="true">
+  <div class="thumb {{ videos[0].thumb_class }} card-stack" aria-hidden="true">
     {% set max_leaves = [count, 4] | min %}
     {% for i in range(max_leaves, 0, -1) %}
-    <span class="stack-leaf stack-leaf-{{ i }}">{{ thumb_emoji }}</span>
+    {% set lv = videos[i - 1] %}
+    <span class="stack-leaf stack-leaf-{{ i }}"{% if lv.thumb_img %} style="background-image:url('{{ lv.thumb_img }}')"{% endif %}>{% if not lv.thumb_img %}{{ lv.thumb_emoji }}{% endif %}</span>
     {% endfor %}
   </div>
   <div class="card-body">
-    <p class="subtitle"><span class="accent">{{ accent }}</span> {{ brand }}</p>
+    <p class="subtitle"><span class="accent">{{ videos[0].accent }}</span> {{ brand }}</p>
     <div class="pills">
       <span class="pill pill-count">{{ count }} video{{ 's' if count != 1 else '' }}</span>
       {% for tag in group_tags or [] %}
@@ -49,8 +58,8 @@
       {% endfor %}
     </div>
     <ul class="points">
-      <li>tap to see all {{ brand }} videos</li>
-      <li>hover to peek the stack</li>
+      <li>tap to see all {{ count }} {{ brand }} videos</li>
+      <li>hover to peek at the stack</li>
     </ul>
   </div>
 </a>

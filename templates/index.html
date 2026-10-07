@@ -19,13 +19,13 @@
 {% endblock %}
 
 {% block content %}
-  <h2 class="section-title">featured UGC videos</h2>
+  <h2 class="section-title"><span class="shine">check out my videos ⋆⭒˚｡⋆</span></h2>
   <p class="section-sub">tap any card to watch the reel</p>
 
   <section class="grid">
     {% for group in groups %}
       {% if group.videos | length > 1 %}
-        {{ stack_card(group.brand_slug, group.brand, group.videos[0].accent, group.videos[0].thumb_class, group.videos[0].thumb_emoji, group.videos | length, group.videos[0].group_tags) }}
+        {{ stack_card(group.brand_slug, group.brand, group.videos, group.videos[0].group_tags) }}
       {% else %}
         {{ video_card(group.videos[0]) }}
       {% endif %}

@@ -183,6 +183,50 @@ main {
   align-items: center;
   justify-content: center;
   font-size: 3.2rem;
+  overflow: hidden;
+}
+
+.thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+  display: block;
+}
+
+.section-title .shine {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 4px 22px;
+  border-radius: 999px;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.section-title .shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.95), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.section-title .shine:hover {
+  background: rgba(207, 227, 240, 0.35);
+  box-shadow: 0 0 22px 6px rgba(207, 227, 240, 0.7);
+}
+
+.section-title .shine:hover::after {
+  animation: shine-sweep 0.9s ease-out;
+}
+
+@keyframes shine-sweep {
+  from { left: -70%; }
+  to { left: 130%; }
 }
 
 .thumb-superboba { --thumb-grad: linear-gradient(135deg, #f3d9c4, #e8b4b8); background: var(--thumb-grad); }
@@ -209,6 +253,11 @@ main {
   justify-content: center;
   font-size: 2.4rem;
   background: var(--thumb-grad);
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
+  border: 3px solid #fffaf3;
+  box-sizing: border-box;
   box-shadow: 0 4px 10px rgba(107, 79, 59, 0.18);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
 }
