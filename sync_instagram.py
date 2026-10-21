@@ -36,6 +36,25 @@ def fetch_media(token):
         return json.load(r).get("data", [])
 
 
+def fetch_views(media_id, token):
+    url = f"https://graph.instagram.com/{media_id}/insights?{urllib.parse.urlencode({'metric': 'views', 'access_token': token})}"
+    try:
+        with urllib.request.urlopen(url, timeout=30) as r:
+            data = json.load(r).get("data", [])
+        return data[0]["values"][0]["value"] if data else None
+    except Exception:
+        return None
+
+
+def update_views(videos, media, token):
+    by_code = {shortcode(m.get("permalink")): m for m in media}
+    for v in videos:
+        item = by_code.get(shortcode(v["reel_url"]))
+        views = fetch_views(item["id"], token) if item else None
+        if views is not None:
+            v["views"] = views
+
+
 def shortcode(permalink):
     m = re.search(r"/(?:reel|p)/([\w-]+)", permalink or "")
     return m.group(1) if m else None
@@ -96,14 +115,16 @@ def main():
     if not token:
         sys.exit("Set IG_ACCESS_TOKEN first (see README).")
     videos = json.loads(DATA_FILE.read_text())
-    added = merge(videos, fetch_media(token))
+    media = fetch_media(token)
+    added = merge(videos, media)
+    update_views(videos, media, token)
     for rec in added:
         print(f"+ {rec['brand']} ({rec['collab_type']}) {rec['reel_url']}")
     if not added:
         print("nothing new")
-    elif "--dry-run" not in sys.argv:
+    if "--dry-run" not in sys.argv:
         DATA_FILE.write_text(json.dumps(videos, indent=2, ensure_ascii=False) + "\n")
-        print("updated data/videos.json, now run: python build.py")
+        print("updated data/videos.json (new reels + view counts), now run: python build.py")
 
 
 if __name__ == "__main__":
