@@ -248,6 +248,45 @@ def cup(bg, table, liquid):
     return img
 
 
+def mango_crush():
+    img, d = canvas(["#fff6d6", "#ffefba", "#ffe6a0", "#ffdc88"], ("#f1dcb8", "#dcc28f"))
+    clouds(d, [(8, 8), (72, 12)], "#fffbea")
+    d.polygon([(30, 18), (58, 18), (55, 52), (33, 52)], fill="#fffdf5")
+    d.polygon([(31, 24), (57, 24), (55, 40), (32, 40)], fill="#ffd34e")
+    d.polygon([(32, 40), (55, 40), (55, 52), (33, 52)], fill="#ffa63d")
+    d.rectangle([31, 20, 57, 25], fill="#fff4d6")
+    for x, y in [(34, 29), (44, 27), (49, 34), (38, 43), (46, 46)]:
+        d.rectangle([x, y, x + 4, y + 4], fill="#ffbb33", outline="#f08e2b")
+    d.rectangle([36, 14, 52, 20], fill="#fffaf0")
+    d.line([(52, 4), (46, 26)], fill="#8fbf86", width=2)
+    d.line([(33, 22), (34, 48)], fill="#ffffff", width=1)
+    d.rectangle([33, 52, 55, 53], fill="#e6d6b0")
+    d.ellipse([66, 34, 90, 56], fill="#ffb347")
+    d.ellipse([66, 34, 78, 46], fill="#ffd27a")
+    d.polygon([(78, 36), (84, 28), (86, 34)], fill="#8fb87a")
+    sparkles(d, [(14, 26), (62, 14), (92, 24), (16, 46)], "#ffffff")
+    return img
+
+
+def houjicha_latte():
+    img, d = canvas(["#f3e6d6", "#ecdcc6", "#e4d0b6", "#dcc4a6"], ("#c9a27a", "#b08658"))
+    clouds(d, [(8, 8), (70, 12)], "#faf1e4")
+    d.polygon([(30, 20), (62, 20), (59, 52), (33, 52)], fill="#fff8ee")
+    d.polygon([(31, 28), (61, 28), (60, 38), (32, 38)], fill="#c89a6c")
+    d.polygon([(32, 38), (60, 38), (59, 52), (33, 52)], fill="#e8d2b4")
+    d.rectangle([31, 24, 61, 29], fill="#f4e6cf")
+    for x, y in [(36, 21), (46, 22), (52, 30)]:
+        d.rectangle([x, y, x + 5, y + 5], fill="#fffdf8", outline="#ead9bd")
+    d.line([(34, 24), (35, 48)], fill="#ffffff", width=1)
+    d.rectangle([33, 52, 59, 53], fill="#d8c3a2")
+    d.line([(66, 56), (72, 40), (80, 30)], fill="#8a6a45", width=2)
+    for (x, y) in [(72, 34), (78, 40), (84, 32), (66, 44)]:
+        d.polygon([(x, y), (x + 4, y - 3), (x + 7, y + 1), (x + 3, y + 3)], fill="#8a6a45")
+    steam(d, 44, 16)
+    sparkles(d, [(14, 26), (86, 14), (18, 46), (90, 50)], "#fff8ee")
+    return img
+
+
 def save(img, name):
     OUT.mkdir(parents=True, exist_ok=True)
     img.resize((W * SCALE, H * SCALE), Image.NEAREST).save(OUT / f"{name}.png", optimize=True)
@@ -271,6 +310,8 @@ def main():
     save(cup(["#eaf4fb", "#dff0fa", "#d3e8f5", "#c8e0f0"], tbl, "#b9d6a8"), "generic-matcha")
     save(cup(["#f6ecd2", "#f1e2bd", "#ead6a8", "#e2c997"], ("#c9a373", "#b08658"), "#d9a06b"), "generic-tea")
     save(boba("#e8b4b8", "#f4cfd2", pink, tbl), "generic-boba")
+    save(mango_crush(), "heytea-1")
+    save(houjicha_latte(), "houjicha-1")
 
 
 if __name__ == "__main__":

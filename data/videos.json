@@ -161,5 +161,35 @@
       "their peach oolong in an infused milk tea",
       "with a houjicha twist"
     ]
+  },
+  {
+    "id": "houjicha-1",
+    "brand": "Houjicha",
+    "brand_slug": "houjicha",
+    "accent": "🍂",
+    "thumb_class": "thumb-oolong",
+    "thumb_emoji": "🍂",
+    "thumb_img": "img/houjicha-1.png",
+    "reel_url": "https://www.instagram.com/p/DerjKmBRm1m/",
+    "collab_type": "gifted",
+    "bullets": [
+      "roasty cozy houjicha, gifted to me",
+      "a lil recipe moment"
+    ]
+  },
+  {
+    "id": "heytea-1",
+    "brand": "HeyTea",
+    "brand_slug": "heytea",
+    "accent": "🥭",
+    "thumb_class": "thumb-heytea",
+    "thumb_emoji": "🥭",
+    "thumb_img": "img/heytea-1.png",
+    "reel_url": "https://www.instagram.com/p/Dec8OcSJ1fE/",
+    "collab_type": "gifted",
+    "bullets": [
+      "trying heytea's new mango crush",
+      "fruity + so refreshing"
+    ]
   }
 ]

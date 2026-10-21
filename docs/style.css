@@ -231,6 +231,7 @@ main {
 .thumb-event { --thumb-grad: linear-gradient(135deg, var(--baby-blue), #8aa7c2); background: var(--thumb-grad); }
 .thumb-makku { --thumb-grad: linear-gradient(135deg, #f6e3e3, #e4b8c2); background: var(--thumb-grad); }
 .thumb-shineteameet { --thumb-grad: linear-gradient(135deg, #ffd9c2, #f3a98a); background: var(--thumb-grad); }
+.thumb-heytea { --thumb-grad: linear-gradient(135deg, #fff1b8, #ffc56e); background: var(--thumb-grad); }
 
 /* --- hover "deck of cards" stack (used for any brand with multiple videos) --- */
 .card-stack {
