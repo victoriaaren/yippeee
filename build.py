@@ -35,7 +35,8 @@ def load_videos():
 
 def group_by_brand(videos):
     groups = OrderedDict()
-    for v in videos:
+    # most viewed first; videos without a views number keep their order at the end
+    for v in sorted(videos, key=lambda v: -(v.get("views") or 0)):
         groups.setdefault(v["brand_slug"], {"brand": v["brand"], "videos": []})
         groups[v["brand_slug"]]["videos"].append(v)
     return [
