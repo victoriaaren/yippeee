@@ -35,8 +35,12 @@ def load_videos():
 
 def group_by_brand(videos):
     groups = OrderedDict()
-    # most viewed first; videos without a views number keep their order at the end
-    for v in sorted(videos, key=lambda v: -(v.get("views_override") or v.get("views") or 0)):
+    # paid collabs get priority, then most viewed; videos without views keep their order at the end
+    def rank(v):
+        paid = v.get("collab_type", "").startswith("paid")
+        return (not paid, -(v.get("views_override") or v.get("views") or 0))
+
+    for v in sorted(videos, key=rank):
         groups.setdefault(v["brand_slug"], {"brand": v["brand"], "videos": []})
         groups[v["brand_slug"]]["videos"].append(v)
     return [

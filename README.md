@@ -14,6 +14,10 @@ A small static-site generator:
 
 Brands with more than one video automatically become a hover "stack" card (max 4 leaves) linking to an auto-generated brand page.
 
+## Card order
+- Paid collabs (`paid`, `paid ugc`) always come first, then everything else
+- Within each group, most viewed first (`views_override` beats `views`; no views goes last)
+
 ## Adding a video by hand
 1. Add an entry to `data/videos.json` (copy an existing one; `thumb_img` can be any file in `static/img/`)
 2. `python build.py`, then commit and push
