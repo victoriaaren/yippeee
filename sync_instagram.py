@@ -12,6 +12,8 @@ A reel is only added when its caption has a portfolio hashtag:
     #paidugc -> "paid UGC"
 The brand is the first @mention in the caption.
 
+It also refreshes each video's "views" so the site sorts by most viewed.
+
 Usage: python sync_instagram.py [--dry-run]  then  python build.py
 """
 import json

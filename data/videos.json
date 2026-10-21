@@ -9,8 +9,12 @@
     "thumb_img": "img/superboba-1.png",
     "reel_url": "https://www.instagram.com/reel/DdEkLlAtbe3/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
     "collab_type": "paid ugc",
-    "extra_tags": ["posted on their page"],
-    "group_tags": ["paid UGC"],
+    "extra_tags": [
+      "posted on their page"
+    ],
+    "group_tags": [
+      "paid UGC"
+    ],
     "group_bullets": [
       "series of UGC videos featuring various superboba flavors",
       "mix of syrups and flavors for their various tea flavor lines",
@@ -33,7 +37,9 @@
     "thumb_img": "img/superboba-2.png",
     "reel_url": "https://www.instagram.com/reel/DcttsGutRg7/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
     "collab_type": "paid ugc",
-    "group_tags": ["paid UGC"],
+    "group_tags": [
+      "paid UGC"
+    ],
     "bullets": [
       "flavor showcase, all the pretty drink shots",
       "lots of sips (my favorite part)"
@@ -50,7 +56,9 @@
     "thumb_img": "img/superboba-3.png",
     "reel_url": "https://www.instagram.com/reel/Ddl8aVGtq0m/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
     "collab_type": "paid ugc",
-    "group_tags": ["paid UGC"],
+    "group_tags": [
+      "paid UGC"
+    ],
     "bullets": [
       "another boba feature, extra aesthetic this time",
       "cozy b-roll + product close ups"
@@ -70,7 +78,8 @@
     "bullets": [
       "whisking up their matcha powder, so satisfying",
       "my honest first sip review"
-    ]
+    ],
+    "views": 4026
   },
   {
     "id": "aozen-matcha-1",
@@ -85,7 +94,8 @@
     "bullets": [
       "my go-to matcha latte, step by step",
       "cozy vibes + pretty pours"
-    ]
+    ],
+    "views": 4560
   },
   {
     "id": "tagashirachaho-1",
@@ -100,7 +110,8 @@
     "bullets": [
       "testing out a new matcha recipe",
       "flat lays + the whole process"
-    ]
+    ],
+    "views": 45660
   },
   {
     "id": "itea-world-1",
@@ -115,7 +126,8 @@
     "bullets": [
       "getting to know their oolong tea line",
       "brewing + tasting notes"
-    ]
+    ],
+    "views": 17760
   },
   {
     "id": "oftea-1",
@@ -130,7 +142,8 @@
     "bullets": [
       "a tea event in nyc!",
       "quick recap of the day"
-    ]
+    ],
+    "views": 4811
   },
   {
     "id": "makku-1",
@@ -145,7 +158,8 @@
     "bullets": [
       "trying a korean makgeolli recipe",
       "pretty pours + tasting"
-    ]
+    ],
+    "views": 9143
   },
   {
     "id": "shineteameet-1",
@@ -160,7 +174,8 @@
     "bullets": [
       "their peach oolong in an infused milk tea",
       "with a houjicha twist"
-    ]
+    ],
+    "views": 3893
   },
   {
     "id": "houjicha-1",
@@ -175,7 +190,8 @@
     "bullets": [
       "roasty cozy houjicha, gifted to me",
       "a lil recipe moment"
-    ]
+    ],
+    "views": 9653
   },
   {
     "id": "heytea-1",
@@ -190,6 +206,7 @@
     "bullets": [
       "trying heytea's new mango crush",
       "fruity + so refreshing"
-    ]
+    ],
+    "views": 9602
   }
 ]
